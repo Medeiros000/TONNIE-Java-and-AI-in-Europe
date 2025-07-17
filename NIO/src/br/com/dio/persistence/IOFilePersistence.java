@@ -4,11 +4,11 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class IOFilePersistence implements FilePersistence {
+public class IOFilePersistence implements FilePersistence{
 
     private final String currentDir = System.getProperty("user.dir");
 
-    private final String storeDir = "/manager_file/IO/";
+    private final String storeDir = "/managedFiles/NIO/";
 
     private final String fileName;
 

@@ -1,4 +1,4 @@
-import br.com.dio.persistence.FielPersistence;
+import br.com.dio.persistence.FilePersistence;
 import br.com.dio.persistence.IOFilePersistence;
 
 import java.io.IOException;
@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         var line = "=".repeat(30);
 
-        FielPersistence persistence = new IOFilePersistence("user.csv");
+        FilePersistence persistence = new IOFilePersistence("user.csv");
 //        System.out.println(persistence.write("Jr;junior@manager.com;09/11/1981"));
 //        System.out.println(persistence.write("Cecilia;cecilia@manager.com;21/04/2000"));
 //        System.out.println(persistence.write("Beatriz;bia@manager.com;01/02/2006"));

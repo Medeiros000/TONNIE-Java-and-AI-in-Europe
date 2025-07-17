@@ -1,6 +1,6 @@
 package br.com.dio.persistence;
 
-public interface FielPersistence {
+public interface FilePersistence {
 
     String write(final String data);
 
