@@ -3,18 +3,11 @@ package br.com.dio.persistence;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.util.List;
-import java.util.stream.Stream;
 
-public class NIOFilePersistence implements FilePersistence {
-
-    private final String currentDir = System.getProperty("user.dir");
-
-    private final String storeDir = "/files/NIO/";
-
-    private final String fileName;
+public class NIOFilePersistence extends FilePersistence {
 
     public NIOFilePersistence(String fileName) throws IOException {
-        this.fileName = fileName;
+        super(fileName, "/files/NIO/");
         var file = new File(currentDir + storeDir);
         if (!file.exists() && !file.mkdirs()) throw new IOException("Erro ao criar arquivo");
 
@@ -31,31 +24,6 @@ public class NIOFilePersistence implements FilePersistence {
             e.printStackTrace();
         }
         return data;
-    }
-
-    @Override
-    public boolean removeContent(String sentence) {
-        var contentList = toListString();
-        if (contentList.stream().noneMatch(c -> c.contains(sentence))) return false;
-
-        clearFile();
-        contentList.stream()
-                .filter(c -> !c.contains(sentence))
-                .forEach(this::write);
-        return true;
-    }
-
-    @Override
-    public String replace(String oldContent, String newContent) {
-        var contentList = toListString();
-
-        if (contentList.stream().noneMatch(c -> c.contains(oldContent))) return "";
-
-        clearFile();
-        contentList.stream()
-                .map(c -> c.contains(oldContent) ? newContent : c)
-                .forEach(this::write);
-        return newContent;
     }
 
     @Override
@@ -109,19 +77,5 @@ public class NIOFilePersistence implements FilePersistence {
             e.printStackTrace();
         }
         return "";
-    }
-
-    private void clearFile() {
-        var filePath = currentDir + storeDir + fileName;
-        try (OutputStream out = new FileOutputStream(filePath)) {
-            System.out.printf("Inicializando recursos (%s)\n", filePath);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    private List<String> toListString() {
-        var content = findAll();
-        return Stream.of(content.split(System.lineSeparator())).toList();
     }
 }

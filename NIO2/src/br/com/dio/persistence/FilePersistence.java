@@ -1,14 +1,57 @@
 package br.com.dio.persistence;
 
-public interface FilePersistence {
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.List;
+import java.util.stream.Stream;
 
-    String write(final String data);
+public abstract class FilePersistence {
 
-    boolean removeContent(final String sentence);
+    protected final String currentDir = System.getProperty("user.dir");
 
-    String replace(final String oldContent, final String newContent);
+    protected final String storeDir;
 
-    String findAll();
+    protected final String fileName;
 
-    String findBy(final String sentence);
+    public FilePersistence(String fileName, final String storeDir) {
+        this.fileName = fileName;
+        this.storeDir = storeDir;
+    }
+
+    public abstract String write(final String data);
+
+    public boolean removeContent(String sentence) {
+        var contentList = toListString();
+        if (contentList.contains(sentence)) return false;
+        clearFile();
+        contentList.stream().filter(c -> !c.contains(sentence)).forEach(this::write);
+        return true;
+    }
+
+    public String replace(String oldContent, String newContent) {
+        var contentList = toListString();
+        if (contentList.contains(oldContent)) return "";
+        clearFile();
+        contentList.stream().map(c -> c.contains(oldContent) ? newContent : c).forEach(this::write);
+        return newContent;
+    }
+
+    public abstract String findAll();
+
+    public abstract String findBy(final String sentence);
+
+    protected void clearFile() {
+        var filePath = currentDir + storeDir + fileName;
+        try (OutputStream out = new FileOutputStream(filePath)) {
+//            System.out.printf("Inicializando recursos (%s)\n", filePath);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    protected List<String> toListString() {
+        var content = findAll();
+        return Stream.of(content.split(System.lineSeparator())).toList();
+    }
 }
