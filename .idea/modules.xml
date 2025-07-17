@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Areas/Areas.iml" filepath="$PROJECT_DIR$/Areas/Areas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Collections/Collections.iml" filepath="$PROJECT_DIR$/Collections/Collections.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Customers/Customers.iml" filepath="$PROJECT_DIR$/Customers/Customers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DebugExceptions/DebugExceptions.iml" filepath="$PROJECT_DIR$/DebugExceptions/DebugExceptions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Enterprise/Enterprise.iml" filepath="$PROJECT_DIR$/Enterprise/Enterprise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Enums/Enums.iml" filepath="$PROJECT_DIR$/Enums/Enums.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Generics/Generics.iml" filepath="$PROJECT_DIR$/Generics/Generics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Optionals/Optionals.iml" filepath="$PROJECT_DIR$/Optionals/Optionals.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Petshop/Petshop.iml" filepath="$PROJECT_DIR$/Petshop/Petshop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Players/Players.iml" filepath="$PROJECT_DIR$/Players/Players.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Relogio/Relogio.iml" filepath="$PROJECT_DIR$/Relogio/Relogio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TONE_AI.iml" filepath="$PROJECT_DIR$/.idea/TONE_AI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThreadRunnables/ThreadRunnables.iml" filepath="$PROJECT_DIR$/ThreadRunnables/ThreadRunnables.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TimeTypes/TimeTypes.iml" filepath="$PROJECT_DIR$/TimeTypes/TimeTypes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manager_file/manager_file.iml" filepath="$PROJECT_DIR$/manager_file/manager_file.iml" />
+    </modules>
+  </component>
+</project>
